@@ -1,0 +1,246 @@
+body{
+    background: #f6c3e5;
+    margin: 0;
+    padding: 0;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'poppins',sans-serif;
+}
+.center{
+    position: relative;
+    width: 400px;
+}
+.center div{
+    position: relative;
+    background: linear-gradient(-160deg,blue,#673ab7);
+    height: 100px;
+    margin: -30px 0;
+    z-index: 2;
+    transform: skewY(-5deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center div:nth-child(2),
+.center div:nth-child(4)
+{
+    transform: skewY(14.5deg);
+    background: #673ab7;
+    z-index: 1;
+}
+.center div:nth-child(4){
+    transform: skewY(25deg);
+    transform-origin:left ;
+    top:-52px;
+}
+.center div:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.center div:nth-child(1):before,
+.center div:nth-child(3):before
+{
+    background: linear-gradient(-160deg,blue,#673ab7);
+    transform: scaleX(0);
+}
+.center div:nth-child(2):before,
+.center div:nth-child(4):before
+{
+    background: linear-gradient(-20deg,#ff0058,#38009c);
+    transform: scaleX(0);
+}
+.center div:nth-child(1):before{
+    animation: animate 1s linear forwards;
+    transform-origin:right ;
+    
+}
+center div:nth-child(2):before{
+    animation: animate 1s linear forwards;
+    transform-origin:left ;
+    animation-delay: 1s;
+}
+center div:nth-child(3):before{
+    animation: animate 1s linear forwards;
+    transform-origin:right ;
+    animation-delay: 2s;
+}
+center div:nth-child(4):before{
+    animation: animate 1s linear forwards;
+    transform-origin:left ;
+    animation-delay: 3s;
+    width: 60%;
+    left: 0;
+}
+@keyframes animate{
+    0%{
+        transform: scaleX(0);
+    }
+    100%{
+        transform: scaleX(1);
+    }
+}
+.center div:nth-child(1):after,
+.center div:nth-child(3):after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(255, 255,255, .2);
+}
+.center div h2{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    opacity: 1;
+    color: #fff;
+}
+.center div :nth-child(1) h2{
+    animation: fadeText 0.5s linear forwards;
+    animation-delay: 1s;
+    font-size: 40px;
+}
+center div :nth-child(3) h2{
+    animation: fadeText 0.5s linear forwards;
+    animation-delay: 3s;
+    font-size: 90px;
+    font-weight: 800;
+}
+@keyframes fadeText{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+    animation:fadeout 5s linear forwards;
+}
+@keyframes fadeout
+{
+    0%,91%{
+        opacity: 1;
+        visibility: visible;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+.loading h2{
+    color: #000;
+}
+.loading  .bar{
+    position: relative;
+    width: 400px;
+    height: 40px;
+    background: transparent;
+    margin: 0 20px;
+    border: 2px solid #000;
+    box-sizing:  border-box;
+}
+.loading .bar:before{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    transform-origin: left;
+    animation: animate 4s linear forwards;
+
+}
+.loading .bar:after{
+    content: 'loading...';
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: #fff;
+    font-size: 20px;
+    mix-blend-mode: difference;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:120px;
+    background-color:#f6c3e5;
+    text-align: center;
+    text-decoration: black ;
+    display: bold;
+    font-size: medium;
+}
+
+ul{
+    position: absolute;
+    width: 100%;
+    top: 20px;
+    margin:  0 ;
+    padding: 0;
+    border-top: 2px solid #777;
+    display: flex;
+    overflow: hidden;
+}
+ul li{
+    list-style: none;
+    position: relative;
+    top:-20px;
+    width: 24px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 25px;
+    
+}
+ul li:before{
+    content:'';
+    position: absolute;
+    top: -7px;
+    left: 7px;
+    width: 10px;
+    height:8px;
+    background: #444;
+}
+ul li:after{
+    content:'';
+    position: absolute;
+    top: -24px;
+    left: 12px;
+    width: 74px;
+    height: 26px;
+    border-bottom: 2px solid #444;
+    border-radius: 50%;
+}
+ul li:last-child:after{
+    border-bottom: none;
+
+}
